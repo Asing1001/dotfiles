@@ -9,10 +9,12 @@ backup_and_link() {
   local target="$2"
   mkdir -p "$(dirname "$target")"
   if [[ -e "$target" || -L "$target" ]]; then
-    if [[ "$(readlink "$target" 2>/dev/null || true)" != "$source" ]]; then
-      echo "  backing up $target → $target.$BACKUP_SUFFIX"
-      mv "$target" "$target.$BACKUP_SUFFIX"
+    if [[ "$(readlink "$target" 2>/dev/null || true)" == "$source" ]]; then
+      echo "  already linked $target"
+      return
     fi
+    echo "  backing up $target → $target.$BACKUP_SUFFIX"
+    mv "$target" "$target.$BACKUP_SUFFIX"
   fi
   ln -sf "$source" "$target"
   echo "  linked $target"
