@@ -11,18 +11,18 @@ if [[ "$(uname)" == "Darwin" ]]; then
   if [[ -x /opt/homebrew/bin/brew ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
   fi
-  brew install neovim tmux git ripgrep fd antidote starship zoxide
+  brew bundle --file "$REPO_DIR/Brewfile"
 else
   if command -v apt-get >/dev/null 2>&1; then
     sudo apt-get update -qq
-    sudo apt-get install -y zsh tmux git curl unzip ripgrep
+    sudo apt-get install -y zsh tmux git curl unzip ripgrep git-delta
     sudo apt-get install -y fd-find && sudo ln -sf "$(command -v fdfind)" /usr/local/bin/fd 2>/dev/null || true
   elif command -v dnf >/dev/null 2>&1; then
-    sudo dnf install -y zsh tmux git curl unzip ripgrep fd-find
+    sudo dnf install -y zsh tmux git curl unzip ripgrep fd-find git-delta
   elif command -v yum >/dev/null 2>&1; then
     sudo yum install -y zsh tmux git curl unzip ripgrep
   elif command -v pacman >/dev/null 2>&1; then
-    sudo pacman -Sy --noconfirm zsh tmux git curl unzip ripgrep fd
+    sudo pacman -Sy --noconfirm zsh tmux git curl unzip ripgrep fd git-delta
   fi
 
   if ! command -v nvim >/dev/null 2>&1; then
@@ -34,6 +34,10 @@ else
 
   if [[ ! -d "$HOME/.antidote" ]]; then
     git clone --depth=1 https://github.com/mattmc3/antidote.git "$HOME/.antidote"
+  fi
+
+  if ! command -v fnm >/dev/null 2>&1; then
+    curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$HOME/.local/bin" --skip-shell
   fi
 
   if ! command -v starship >/dev/null 2>&1; then
