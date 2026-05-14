@@ -22,15 +22,10 @@ return {
       end
 
       return {
-        { "<C-p>", project_files, desc = "Find files" },
-        { "<leader>ff", project_files, desc = "Find files" },
-        { "<leader>p", project_files, desc = "Find files" },
-        { "<leader>f", builtin.live_grep, desc = "Search project" },
-        { "<leader>fg", builtin.live_grep, desc = "Search project" },
-        { "<leader>fb", builtin.buffers, desc = "Buffers" },
-        { "<leader>fd", builtin.diagnostics, desc = "Diagnostics" },
-        { "<leader>fh", builtin.help_tags, desc = "Help" },
-        { "<leader><leader>", builtin.oldfiles, desc = "Recent files" },
+        { "<leader>p", project_files,    desc = "Find files" },
+        { "<leader>f", builtin.live_grep, desc = "Search in project" },
+        { "<leader>e", "<cmd>Explore<CR>", desc = "File explorer" },
+        { "<leader>b", builtin.buffers,   desc = "Switch buffers" },
       }
     end,
     opts = {
