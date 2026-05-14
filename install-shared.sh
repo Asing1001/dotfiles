@@ -21,6 +21,7 @@ backup_and_link() {
 link_file() { backup_and_link "$REPO_DIR/home/$1" "$HOME/$1"; }
 link_dir()  { backup_and_link "$REPO_DIR/home/$1" "$HOME/$1"; }
 
+link_file ".config/starship.toml"
 link_file ".zshrc"
 link_file ".zsh_plugins.txt"
 link_file ".tmux.conf"
