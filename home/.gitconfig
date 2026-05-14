@@ -1,0 +1,12 @@
+[user]
+	name = Sing
+	email = sing@paddingleft.com
+[core]
+	pager = less -RFX
+	excludesfile = ~/.gitignore
+[diff]
+	algorithm = patience
+[pull]
+	rebase = true
+[rebase]
+	autostash = true

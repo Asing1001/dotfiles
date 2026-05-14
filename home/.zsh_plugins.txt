@@ -1,0 +1,5 @@
+zsh-users/zsh-completions kind:fpath path:src
+mattmc3/ez-compinit
+ohmyzsh/ohmyzsh path:plugins/vi-mode
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-syntax-highlighting
