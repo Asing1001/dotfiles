@@ -33,10 +33,6 @@ export SOME_API_KEY="..."
 alias work="cd ~/work/myproject"
 ```
 
-## MacBook setup
-
-The MacBook has its own repo ([Mac-Configs](https://github.com/Asing1001/Mac-Configs)) for Mac-specific apps and settings. Its `install.sh` clones this repo and runs `install-shared.sh` to get the shared configs, then adds Mac-specific things on top.
-
 ## Day-to-day
 
 - **Change shared config** (zsh, tmux, nvim) → edit in `~/projects/dotfiles`, commit, push. Other machines pick it up with `git pull`.
