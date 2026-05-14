@@ -1,8 +1,6 @@
 format = "$directory$git_branch$git_status$character"
+right_format = "$time"
 add_newline = false
-
-[transience]
-enabled = true
 
 [directory]
 format = "[$path]($style)"
@@ -14,6 +12,12 @@ format = " on [$branch](bold purple)"
 
 [git_status]
 format = '([ $all_status$ahead_behind]($style) )'
+
+[time]
+disabled = false
+format = " [$time]($style)"
+time_format = "%H:%M"
+style = "dimmed white"
 
 [character]
 success_symbol = "[❯](bold green)"
