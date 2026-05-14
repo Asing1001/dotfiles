@@ -9,11 +9,13 @@ export LANG=en_US.UTF-8
 export EDITOR=nvim
 export PATH="$HOME/.local/bin:$PATH"
 
-# Antidote (cloned to ~/.antidote by install.sh)
-if [[ -f "$HOME/.antidote/antidote.zsh" ]]; then
+# Antidote — prefer Homebrew (macOS), fall back to cloned copy (Linux)
+if [[ -r "/opt/homebrew/opt/antidote/share/antidote/antidote.zsh" ]]; then
+  source "/opt/homebrew/opt/antidote/share/antidote/antidote.zsh"
+elif [[ -r "$HOME/.antidote/antidote.zsh" ]]; then
   source "$HOME/.antidote/antidote.zsh"
-  antidote load "$HOME/.zsh_plugins.txt"
 fi
+antidote load "$HOME/.zsh_plugins.txt" 2>/dev/null || true
 
 # Aliases
 alias vi='nvim'
