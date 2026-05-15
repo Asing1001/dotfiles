@@ -30,5 +30,13 @@ link_file ".tmux.conf"
 link_file ".gitconfig"
 link_dir  ".config/nvim"
 
-# Download/update zsh plugins
-command -v antidote >/dev/null 2>&1 && antidote update
+# Download/update zsh plugins. antidote is a zsh function (not a binary), so
+# source it inside a zsh subshell before calling.
+zsh -c '
+  if [[ -r "${HOMEBREW_PREFIX:-/opt/homebrew}/opt/antidote/share/antidote/antidote.zsh" ]]; then
+    source "${HOMEBREW_PREFIX:-/opt/homebrew}/opt/antidote/share/antidote/antidote.zsh"
+  elif [[ -r "$HOME/.antidote/antidote.zsh" ]]; then
+    source "$HOME/.antidote/antidote.zsh"
+  fi
+  antidote update
+' || true
