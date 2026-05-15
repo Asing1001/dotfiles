@@ -29,3 +29,6 @@ link_file ".zsh_plugins.txt"
 link_file ".tmux.conf"
 link_file ".gitconfig"
 link_dir  ".config/nvim"
+
+# Download/update zsh plugins
+command -v antidote >/dev/null 2>&1 && antidote update
