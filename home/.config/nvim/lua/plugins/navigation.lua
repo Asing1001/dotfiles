@@ -17,7 +17,7 @@ return {
         if vim.fn.system("git rev-parse --is-inside-work-tree 2>/dev/null"):match("true") then
           builtin.git_files({ show_untracked = true })
         else
-          builtin.find_files()
+          builtin.find_files({ hidden = true })
         end
       end
 
