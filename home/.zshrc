@@ -16,6 +16,9 @@ export LANG=en_US.UTF-8
 export EDITOR=nvim
 export PATH="$HOME/.local/bin:$PATH"
 
+# vi-mode cursor shape (block in normal, beam in insert)
+VI_MODE_SET_CURSOR=true
+
 # Antidote — Homebrew (macOS) or cloned (Linux)
 if [[ -r "${HOMEBREW_PREFIX:-}/opt/antidote/share/antidote/antidote.zsh" ]]; then
   source "${HOMEBREW_PREFIX}/opt/antidote/share/antidote/antidote.zsh"
