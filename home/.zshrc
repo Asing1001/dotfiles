@@ -4,13 +4,6 @@ export SAVEHIST=10000
 export HISTFILE="$HOME/.zsh_history"
 setopt SHARE_HISTORY HIST_IGNORE_DUPS HIST_IGNORE_SPACE
 
-# Homebrew (macOS)
-if [[ -x /opt/homebrew/bin/brew ]]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-elif [[ -x /usr/local/bin/brew ]]; then
-  eval "$(/usr/local/bin/brew shellenv)"
-fi
-
 # Environment
 export LANG=en_US.UTF-8
 export EDITOR=nvim
@@ -39,3 +32,6 @@ command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
 
 # Local overrides (machine-specific, not in git)
 [[ -f "$HOME/.zsh_local" ]] && source "$HOME/.zsh_local"
+
+# OpenClaw Completion
+[ -f "/Users/server/.openclaw/completions/openclaw.zsh" ] && source "/Users/server/.openclaw/completions/openclaw.zsh"
